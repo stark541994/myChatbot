@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +61,9 @@ public class BotController {
 	
 	@GetMapping("/list_messages")
 	public String viewMessagesList(Model model) {
-		List<Message> listMessages = mrepo.findAll();
+		//List<Message> listMessages = mrepo.findAll();
 		//List<Message> listMessages = mrepo.findContentByResponse();
+		List listMessages = mrepo.findContentByResponse("I am not sure what to answer that. I'll let this know to our Administrator");
 		model.addAttribute("listMessages", listMessages);
 		return "questions";
 	}
